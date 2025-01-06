@@ -1,9 +1,47 @@
+
+export const logoStyle = {
+  width: "80px", // גודל הלוגו
+  height: "auto",
+  marginRight: "20px",
+};
+
+export const headerStyle = {
+  backgroundColor: "#f8f9fa", // רקע בהיר
+  padding: "15px 20px",
+  boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)", // הצללה
+  position: "sticky", // שומר אותו בראש העמוד
+  top: 0,
+  zIndex: 1000,
+};
+
 export const navStyle = {
   display: "flex",
-  justifyContent: "space-between",
-  flexDirection: "row-reverse",
-  gap: "10px",
+  justifyContent: "space-around",
+  alignItems: "center",
+  listStyleType: "none",
+  margin: 0,
+  padding: 0,
 };
+
+export const linkStyle = {
+  textDecoration: "none",
+  color: "#333",
+  fontWeight: "bold",
+  fontSize: "16px",
+  transition: "color 0.3s ease",
+};
+
+export const linkHoverStyle = {
+  color: "#007bff", // צבע כחול בלחיצה/ריחוף
+};
+
+
+// export const navStyle = {
+//   display: "flex",
+//   justifyContent: "space-between",
+//   flexDirection: "row-reverse",
+//   gap: "10px",
+// };
 export const cardContainerStyle = {
   display: "flex",
   flexDirection: "column",

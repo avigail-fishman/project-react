@@ -9,7 +9,9 @@ body {
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  overflow-x: hidden; /* ביטול גלילה אופקית */
 }
+
 
 /* סגנון לקונטיינר המרכזי שמכיל את 3 הקופסאות */
 .container {
