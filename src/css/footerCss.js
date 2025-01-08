@@ -31,7 +31,7 @@ export const iconsStyle = {
 };
 
 export const copyrightBarStyle = {
-  backgroundColor: "#77a077", // ירוק עדין יותר
+  backgroundColor: "#3c433c", 
   color: "#fff",
   textAlign: "center",
   padding: "15px 0", // ריווח אנכי רחב יותר

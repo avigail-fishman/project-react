@@ -1,30 +1,50 @@
-import { useState } from "react"
+import { useState } from "react";
+import { contactContainerStyle, contactHeaderStyle, inputStyle, buttonStyle } from '../css/contactUsCss'; // מייבא את הסגנונות מקובץ ה-CSS
 
 function ContactUs() {
-
   const [nameValue, setNameValue] = useState("");
   const [phoneValue, setPhoneValue] = useState("");
   const [mailValue, setMailValue] = useState("");
 
-  ///////////////////////////////////////////////
-  // לבדוק איך מציגים את השם //
-  const toContact = () =>{
+  const toContact = () => {
     alert(`פרטיך נשלחו בהצלחה! ${nameValue}`);
-  }
+  };
 
-    return <>
+  return (
+    <div style={contactContainerStyle}>
+      <h1 style={contactHeaderStyle}>צור קשר</h1>
+      <form>
+        <input 
+          type="text" 
+          value={nameValue} 
+          placeholder="הכנס שם מלא" 
+          onChange={(e) => setNameValue(e.target.value)} 
+          style={inputStyle} 
+        />
+        <input 
+          type="number" 
+          value={phoneValue} 
+          placeholder="הכנס טלפון" 
+          onChange={(e) => setPhoneValue(e.target.value)} 
+          style={inputStyle} 
+        />
+        <input 
+          type="email" 
+          value={mailValue} 
+          placeholder="הכנס כתובת מייל" 
+          onChange={(e) => setMailValue(e.target.value)} 
+          style={inputStyle} 
+        />
+        <button 
+          type="button" 
+          onClick={toContact} 
+          style={buttonStyle}
+        >
+          ליצירת קשר
+        </button>
+      </form>
+    </div>
+  );
+}
 
-   <h1>צור קשר</h1>
-   <form>
-    <input type="text" value={nameValue} placeholder='הכנס שם מלא' onChange={(e) => {setNameValue(e.target.value)}}/>
-    <input type="number" value={phoneValue} placeholder='הכנס טלפון' onChange={(e) => {setPhoneValue(e.target.value)}}/>
-    <input type="email" value={mailValue} placeholder='הכנס כתובת מייל' onChange={(e) => {setMailValue(e.target.value)}}/>
-    <button onClick={() =>{ toContact()}}>ליצירת קשר</button>
-
-   </form>
-    </>
-    
-  }
-  
-  export default ContactUs;
-  
+export default ContactUs;
