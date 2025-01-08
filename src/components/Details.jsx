@@ -23,7 +23,7 @@ function Details({ flower, isOpen, onClose, modalType, openModal }) {
         )}
 
         {/* אם המודאל הוא עבור "הוסף לסל" */}
-        {modalType === " " && (
+        {modalType === "" && (
           <>
             <p>המוצר נוסף לעגלת הקניות!</p>
             <Link to="/myCart">ראה את עגלת הקניות</Link>

@@ -1,82 +1,33 @@
 import { useState } from "react";
 import Card from "./Card";
-import { productsContainerStyle } from "../style";
+import { productsContainerStyle, cardContainerStyle, cardContainerHoverStyle } from "../css/productsCss";
 
+function Products({ products, addToCart }) {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
-function Products() {
-  const [flowers, setFlowers] = useState([
-    {
-      id: 1,
-      name: "זר עשיר",
-      price: "120.0",
-      img: "1.jpg",
-      discraption:"בלה בלה"
-    },
-    {
-      id: 2,
-      name: "זר שבתי",
-      price: "70.0",
-      img: "2.jpg",
-      discraption:"בלה בלה"
-    },
-    {
-      id: 3,
-      name: "זר ססגוני",
-      price: "100.0",
-      img: "3.jpg",
-      discraption:"בלה בלה"
-    },
-    {
-      id: 4,
-      name: "זר מפואר",
-      price: "270.0",
-      img: "4.jpg",
-      discraption:"בלה בלה"
-    },
-    {
-      id: 5,
-      name: "זר מעוצב",
-      price: "90.0",
-      img: "5.jpg",
-      discraption:"בלה בלה"
-    },
-    {
-      id: 6,
-      name: "זר ורדרד",
-      price: "120.0",
-      img: "6.jpg",
-      discraption:"בלה בלה"
-    },
-    {
-      id: 7,
-      name: "זר",
-      price: "70.0",
-      img: "7.jpg",
-      discraption:"בלה בלה"
-    },
-    {
-      id: 8,
-      name: "racheli",
-      price: "70.0",
-      img: "8.jpg",
-      discraption:"בלה בלה"
-    },
-    {
-      id: 9,
-      name: "racheli",
-      time: "20:06",
-      sum: 100,
-      img: "9.jpg",
-      discraption:"בלה בלה"
-    },
-  ]);
+  const handleMouseEnter = (index) => setHoveredIndex(index);
+  const handleMouseLeave = () => setHoveredIndex(null);
+
+  if (!products || products.length === 0) {
+    return <p>לא נמצאו מוצרים.</p>;
+  }
 
   return (
     <>
-      <h1>פרחים</h1>
+      <h1 style={{ textAlign: "center", fontSize: "32px", margin: "30px 0", color: "#77a077" }}>פרחים</h1>
       <div style={productsContainerStyle}>
-        {flowers.map((f) => (
-          <Card flower={{ ...f }} key={f.id} />
+        {products.map((f, index) => (
+          <div
+            style={{
+              ...cardContainerStyle,
+              ...(hoveredIndex === index ? cardContainerHoverStyle : {}),
+            }}
+            onMouseEnter={() => handleMouseEnter(index)}
+            onMouseLeave={handleMouseLeave}
+            key={f.id}
+          >
+            <Card flower={{ ...f }} addToCart={addToCart} />
+          </div>
         ))}
       </div>
     </>

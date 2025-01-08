@@ -1,53 +1,24 @@
-/////// עיצוב התוכן של העמוד ////////
 export const homeContainerStyle = {
-    textAlign: "center",
-    padding: "0",
-    margin: "0",
-  };
-  
-  export const imageStyle = {
-    width: "100%", // התמונה מכסה את כל הרוחב
-    height: "auto",
-    display: "block",
-  };
-  
-  /////// עיצוב הפוטר של העמוד ////////
-  export const footerStyle = {
-    backgroundColor: "#333",
-    color: "#fff",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "flex-start",
-    padding: "30px 20px", // שמירה על הגובה של הפוטר
-    flexWrap: "wrap",
-    marginTop: "0", // לא יהיה רווח מעל הפוטר
-  };
-  
-  export const followStyle = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    marginRight: "20px",
-  };
-  
-  export const columnStyle = {
-    flex: "1 1 20%",
-    padding: "10px",
-    listStyleType: "none",
-  };
-  
-  export const iconsStyle = {
-    fontSize: "24px",
-    margin: "5px 0",
-    color: "#ffdd00",
-  };
-  
-  export const copyrightBarStyle = {
-    backgroundColor: "#789974", // ירוק זית
-    color: "#fff",
-    textAlign: "center",
-    padding: "10px 0", // ריווח אנכי
-    fontSize: "14px",
-    marginTop: "0", // לא יהיה רווח נוסף
-  };
-  
+  textAlign: "center",
+  padding: "40px 20px",
+  backgroundColor: "#f4f4f4", // צבע רקע בהיר יותר
+  margin: 0,
+  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)", // הוספת צל
+  borderRadius: "10px", // פינות מעוגלות
+};
+
+export const welcomeTextStyle = {
+  fontSize: "40px", // גודל פונט גדול יותר
+  color: "#388e3c", // ירוק כהה ואלגנטי
+  fontWeight: "600", // גופן מעודן יותר
+  marginBottom: "30px",
+  fontFamily: "'Roboto', sans-serif", // גופן מודרני
+};
+
+export const homeImageStyle = {
+  width: "70%", // צמצום התמונה
+  height: "auto",
+  borderRadius: "20px", // עיגול פינות
+  boxShadow: "0 6px 18px rgba(0, 0, 0, 0.2)", // צל חזק יותר
+  marginTop: "20px",
+};
