@@ -19,14 +19,13 @@ function MyCart({ cartArr = [], sum = 0, deleteFromCart }) {
         <ol>
           {cartArr.map((product, i) => (
             <li key={i} style={cartItemStyle}>
-              {product.name} - {product.price}₪
+              {product.name} - {product.price * product.count}₪ 
+              {product.count} - כמות
               <button
                 onClick={() => deleteFromCart(product)}
-                style={deleteButtonStyle}
-              >
-                מחיקה
+                style={deleteButtonStyle}>מחיקה
               </button>
-            </li>
+            </li> 
           ))}
         </ol>
       )}
