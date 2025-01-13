@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   cartContainerStyle,
@@ -8,6 +8,7 @@ import {
   totalStyle,
   paymentLinkStyle
 } from '../css/myCartCss';
+import MyConext from "../context/context";
 
 function MyCart({ cartArr = [], sum = 0, deleteFromCart }) {
   // הגדרת משתנים useState 
@@ -15,6 +16,7 @@ function MyCart({ cartArr = [], sum = 0, deleteFromCart }) {
   const [myCartArr, setMyCartArr] = useState(cartArr);
   const [mySum, setMySum] = useState(sum);
   const navigate = useNavigate(); // שימוש ב-useNavigate
+  const { currentUser } = useContext(MyConext);
 
   // פונקציה שמוספיה לכמות בהתאם להוספה בעגלה
   const addItem = (productIndex) => {
@@ -62,7 +64,13 @@ function MyCart({ cartArr = [], sum = 0, deleteFromCart }) {
       alert("העגלה ריקה! לא ניתן לעבור לתשלום.");
       return;
     }
-    navigate("/payment", { state: { total: mySum } }); // שימוש נכון ב-useNavigate
+    if(currentUser == null){
+      alert("עליך להתחבר למערכת");
+      navigate("/logIn");
+    }
+    else{
+      navigate("/payment", { state: { total: mySum } }); // שימוש נכון ב-useNavigate
+    }
   };
 
   return (

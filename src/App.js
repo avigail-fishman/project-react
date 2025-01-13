@@ -74,6 +74,11 @@ function App() {
     setProducts(updatedProducts);
   };
 
+  // פונקציה שמרוכנת את סל הקניות לאחר שאישרו את הקניה
+  const resetCartArr = () =>{
+   setCartArr([]);
+   setSum(0);
+  };
   return (
     <>
       <Myprovider value={store}>
@@ -92,6 +97,7 @@ function App() {
                 deleteByManager={deleteByManager}
                 addItemByManager={addItemByManager}
                 updateItemByManager={updateItemByManager}
+                resetCartArr = {resetCartArr}
               />
             </main>
             <footer>

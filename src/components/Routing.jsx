@@ -13,7 +13,8 @@ import AddItem from "./AddItem";
 import UpdateItem from "./UpdateItem";
 
 export const Routing = ({ products, addToCart, cartArr,
-    deleteFromCart, sum, deleteByManager, addItemByManager, updateItemByManager }) => {
+    deleteFromCart, sum, deleteByManager, addItemByManager, 
+    updateItemByManager , resetCartArr}) => {
 
     return (
         <>
@@ -31,7 +32,7 @@ export const Routing = ({ products, addToCart, cartArr,
                         deleteByManager={deleteByManager}
                         updateItemByManager={updateItemByManager} />
                     } />
-                <Route path="/payment" element={<Payment />} />
+                <Route path="/payment" element={<Payment resetCartArr={resetCartArr} />} />
                 <Route path="/logIn" element={<LogIn />} />
                 <Route path="/signUp" element={<SignUp />} />
                 <Route path="/usersManager" element={<UsersManager />} />
