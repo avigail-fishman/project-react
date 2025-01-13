@@ -7,7 +7,15 @@ function ContactUs() {
   const [mailValue, setMailValue] = useState("");
 
   const toContact = () => {
+
     alert(`פרטיך נשלחו בהצלחה! ${nameValue}`);
+
+    if(require){
+    // ניקוי השדות
+    setNameValue("");
+    setPhoneValue("");
+    setMailValue("");
+    }
   };
 
   return (
@@ -18,6 +26,7 @@ function ContactUs() {
           type="text" 
           value={nameValue} 
           placeholder="הכנס שם מלא" 
+          required
           onChange={(e) => setNameValue(e.target.value)} 
           style={inputStyle} 
         />
@@ -25,6 +34,7 @@ function ContactUs() {
           type="number" 
           value={phoneValue} 
           placeholder="הכנס טלפון" 
+          required
           onChange={(e) => setPhoneValue(e.target.value)} 
           style={inputStyle} 
         />
@@ -32,6 +42,7 @@ function ContactUs() {
           type="email" 
           value={mailValue} 
           placeholder="הכנס כתובת מייל" 
+          required
           onChange={(e) => setMailValue(e.target.value)} 
           style={inputStyle} 
         />

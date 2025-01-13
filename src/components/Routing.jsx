@@ -6,7 +6,8 @@ import Products from "./Products";
 import MyCart from "./MyCart";
 import { Route, Routes } from "react-router-dom";
 import Payment from "./Payment";
-
+import LogIn from "./LogIn";
+import SignUp from "./SignUp";
 
 export const Routing = ({ products, addToCart, cartArr, deleteFromCart, sum }) => {
 
@@ -18,14 +19,14 @@ export const Routing = ({ products, addToCart, cartArr, deleteFromCart, sum }) =
                 <Route path="/home" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contactUs" element={<ContactUs />} />
-                {/* <Route path="/details/:name/:discraption" element={<Details />} /> */}
-                {/* <Route path="/myCart/:name/:price/:cartArr/:sum" element=
-                    {<MyCart deleteFromCart={deleteFromCart} />} /> */}
                 <Route path="/myCart" element={<MyCart cartArr={cartArr}
                     sum={sum} deleteFromCart={deleteFromCart}/>}/>
                 <Route path="/products" element={<Products products={products}
                     addToCart={addToCart} />} />
                 <Route path="/payment" element={<Payment />} />
+                <Route path="/logIn" element={<LogIn />} />
+                <Route path="/signUp" element={<SignUp/>} />
+
             </Routes>
         </>
     );

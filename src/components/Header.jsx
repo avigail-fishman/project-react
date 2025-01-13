@@ -7,20 +7,20 @@ import {
   linkHoverStyle,
 } from "../css/heaerCss";
 import { useState } from "react";
+import MyConext from "../context/context";
+import React, { useContext } from "react";
 
 function Header() {
   const [hovered, setHovered] = useState(false);
 
   const handleMouseEnter = () => setHovered(true);
   const handleMouseLeave = () => setHovered(false);
+  const { currentUser, logOut } = useContext(MyConext); // קבלת logOut מ-Context
 
   return (
     <header style={headerStyle}>
       <nav style={navStyle}>
-
-
         {/* קישורים */}
-
         <Link
           to="/myCart"
           style={{ ...linkStyle, ...(hovered ? linkHoverStyle : {}) }}
@@ -29,14 +29,24 @@ function Header() {
         >
           הסל שלי
         </Link>
-        <Link
-          to="/signIn"
-          style={{ ...linkStyle, ...(hovered ? linkHoverStyle : {}) }}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          התחברות
-        </Link>
+
+        {currentUser && (
+          <>
+            <span>שלום, {currentUser.username}</span>
+            <button onClick={logOut}>התנתקות</button>
+          </>
+        )}
+
+        {!currentUser && (
+          <Link
+            to="/logIn"
+            style={{ ...linkStyle, ...(hovered ? linkHoverStyle : {}) }}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            התחברות
+          </Link>
+        )}
 
         <Link
           to="/profile"
