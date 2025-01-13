@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Card from "./Card";
 import { productsContainerStyle, cardContainerStyle, cardContainerHoverStyle } from "../css/productsCss";
+import { Link } from "react-router-dom";
+import MyConext from "../context/context";
 
-function Products({ products, addToCart }) {
+function Products({ products, addToCart, deleteByManager,updateItemByManager}) {
+  
   const [hoveredIndex, setHoveredIndex] = useState(null);
-
+  const { currentUser } = useContext(MyConext);
   const handleMouseEnter = (index) => setHoveredIndex(index);
   const handleMouseLeave = () => setHoveredIndex(null);
 
@@ -26,10 +29,15 @@ function Products({ products, addToCart }) {
             onMouseLeave={handleMouseLeave}
             key={f.id}
           >
-            <Card flower={{ ...f }} addToCart={addToCart} />
+            <Card flower={{ ...f }} addToCart={addToCart}
+             deleteByManager={deleteByManager}
+             updateItemByManager ={updateItemByManager} />
           </div>
         ))}
       </div>
+      {currentUser?.role === "manager" && (
+      <Link to="/addItem">להוספת מוצר</Link>
+      )}
     </>
   );
 }

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // ייבוא useNavigate
 import {
   headerStyle,
   linkStyle,
@@ -12,15 +12,20 @@ import React, { useContext } from "react";
 
 function Header() {
   const [hovered, setHovered] = useState(false);
+  const navigate = useNavigate(); // שימוש ב-useNavigate
+  const { currentUser, logOut } = useContext(MyConext);
 
   const handleMouseEnter = () => setHovered(true);
   const handleMouseLeave = () => setHovered(false);
-  const { currentUser, logOut } = useContext(MyConext); // קבלת logOut מ-Context
+
+  const handleLogOut = () => {
+    logOut(); // קריאה לפונקציית התנתקות
+    navigate("/home"); // ניווט לדף הבית לאחר התנתקות
+  };
 
   return (
     <header style={headerStyle}>
       <nav style={navStyle}>
-        {/* קישורים */}
         <Link
           to="/myCart"
           style={{ ...linkStyle, ...(hovered ? linkHoverStyle : {}) }}
@@ -30,10 +35,30 @@ function Header() {
           הסל שלי
         </Link>
 
+        {currentUser?.role === "manager" && (
+          <>
+            <Link
+              to={"/usersManager"}
+              style={{ ...linkStyle, ...(hovered ? linkHoverStyle : {}) }}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              לניהול משתמשים
+            </Link>
+          </>
+        )}
+
         {currentUser && (
           <>
             <span>שלום, {currentUser.username}</span>
-            <button onClick={logOut}>התנתקות</button>
+            <button
+              onClick={handleLogOut} // קריאה לפונקציה המעדכנת
+              style={{ ...linkStyle, ...(hovered ? linkHoverStyle : {}) }}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              התנתקות
+            </button>
           </>
         )}
 
@@ -93,7 +118,6 @@ function Header() {
           דף הבית
         </Link>
 
-        {/* לוגו */}
         <Link to="/home">
           <img src="/images/logo.png" alt="Logo" style={logoStyle} />
         </Link>
