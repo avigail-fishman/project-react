@@ -1,122 +1,75 @@
-import { Link, useNavigate } from "react-router-dom"; // ייבוא useNavigate
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import MyConext from '../context/context';
 import {
   headerStyle,
   linkStyle,
   navStyle,
   logoStyle,
   linkHoverStyle,
-} from "../css/heaerCss";
-import { useState } from "react";
-import MyConext from "../context/context";
-import React, { useContext } from "react";
+} from '../css/heaerCss';
+import { IconShoppingCart } from '@tabler/icons-react';
 
 function Header() {
-  const [hovered, setHovered] = useState(false);
-  const navigate = useNavigate(); // שימוש ב-useNavigate
+  const [hoveredLink, setHoveredLink] = useState(null); // מזהה של הלינק שנמצא במצב hover
+  const navigate = useNavigate();
   const { currentUser, logOut } = useContext(MyConext);
 
-  const handleMouseEnter = () => setHovered(true);
-  const handleMouseLeave = () => setHovered(false);
+  const handleMouseEnter = (link) => setHoveredLink(link);
+  const handleMouseLeave = () => setHoveredLink(null);
 
   const handleLogOut = () => {
-    logOut(); // קריאה לפונקציית התנתקות
-    navigate("/home"); // ניווט לדף הבית לאחר התנתקות
+    logOut();
+    navigate('/home');
   };
+
+  const links = [
+    { to: '/myCart', label: <IconShoppingCart size={30} stroke={1.5} /> },
+    { to: '/usersManager', label: 'לניהול משתמשים', condition: currentUser?.role === 'manager' },
+    { to: '/logIn', label: 'התחברות', condition: !currentUser },
+    { to: '/contactUs', label: 'צור קשר' },
+    { to: '/products', label: 'מוצרים' },
+    { to: '/about', label: 'אודות' },
+    { to: '/home', label: 'דף הבית' },
+  ];
 
   return (
     <header style={headerStyle}>
       <nav style={navStyle}>
-        <Link
-          to="/myCart"
-          style={{ ...linkStyle, ...(hovered ? linkHoverStyle : {}) }}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          הסל שלי
-        </Link>
-
-        {currentUser?.role === "manager" && (
-          <>
-            <Link
-              to={"/usersManager"}
-              style={{ ...linkStyle, ...(hovered ? linkHoverStyle : {}) }}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              לניהול משתמשים
-            </Link>
-          </>
+        {links.map(
+          ({ to, label, condition = true }) =>
+            condition && (
+              <Link
+                key={to}
+                to={to}
+                style={{
+                  ...linkStyle,
+                  ...(hoveredLink === to ? linkHoverStyle : {}),
+                }}
+                onMouseEnter={() => handleMouseEnter(to)}
+                onMouseLeave={handleMouseLeave}
+              >
+                {label}
+              </Link>
+            )
         )}
 
         {currentUser && (
           <>
             <span>שלום, {currentUser.username}</span>
             <button
-              onClick={handleLogOut} // קריאה לפונקציה המעדכנת
-              style={{ ...linkStyle, ...(hovered ? linkHoverStyle : {}) }}
-              onMouseEnter={handleMouseEnter}
+              onClick={handleLogOut}
+              style={{
+                ...linkStyle,
+                ...(hoveredLink === 'logout' ? linkHoverStyle : {}),
+              }}
+              onMouseEnter={() => handleMouseEnter('logout')}
               onMouseLeave={handleMouseLeave}
             >
               התנתקות
             </button>
           </>
         )}
-
-        {!currentUser && (
-          <Link
-            to="/logIn"
-            style={{ ...linkStyle, ...(hovered ? linkHoverStyle : {}) }}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            התחברות
-          </Link>
-        )}
-
-        <Link
-          to="/profile"
-          style={{ ...linkStyle, ...(hovered ? linkHoverStyle : {}) }}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          איזור אישי
-        </Link>
-
-        <Link
-          to="/contactUs"
-          style={{ ...linkStyle, ...(hovered ? linkHoverStyle : {}) }}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          צור קשר
-        </Link>
-
-        <Link
-          to="/products"
-          style={{ ...linkStyle, ...(hovered ? linkHoverStyle : {}) }}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          מוצרים
-        </Link>
-
-        <Link
-          to="/about"
-          style={{ ...linkStyle, ...(hovered ? linkHoverStyle : {}) }}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          אודות
-        </Link>
-
-        <Link
-          to="/home"
-          style={{ ...linkStyle, ...(hovered ? linkHoverStyle : {}) }}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          דף הבית
-        </Link>
 
         <Link to="/home">
           <img src="/images/logo.png" alt="Logo" style={logoStyle} />

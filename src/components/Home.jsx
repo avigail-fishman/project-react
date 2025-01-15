@@ -1,13 +1,25 @@
-import { useContext } from "react";
-import { homeContainerStyle, homeImageStyle, welcomeTextStyle } from "../css/homeCss";
-import MyConext from "../context/context";
+import React from 'react';
+import {
+  videoContainerStyle,
+  videoStyle,
+  textOverlayContainerStyle,
+  h1Style,
+  h2Style,
+} from '../css/homeCss';
 
 function Home() {
-  
   return (
-    <div style={homeContainerStyle}>
-      <h1 style={welcomeTextStyle}>ברוכים הבאים לחנות הפרחים שלנו</h1>
-      <img src="/images/home.jpg" alt="Flower Shop" style={homeImageStyle} />
+    <div style={videoContainerStyle}>
+      {/* טקסט שמוצג מעל הווידאו */}
+      <div style={textOverlayContainerStyle}>
+        <h2 style={h2Style}>מרגשים את מי</h2>
+        <h1 style={h1Style}>שאוהבים</h1>
+      </div>
+      {/* ווידאו */}
+      <video style={videoStyle} autoPlay muted loop>
+        <source src="/images/video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
     </div>
   );
 }

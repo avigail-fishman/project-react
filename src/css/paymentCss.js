@@ -10,7 +10,7 @@ export const paymentContainerStyle = {
   
   export const paymentHeaderStyle = {
     fontSize: "32px",
-    color: "#388e3c",
+    color: "#00000",
     fontWeight: "600",
     marginBottom: "30px",
     fontFamily: "'Roboto', sans-serif",
@@ -18,20 +18,21 @@ export const paymentContainerStyle = {
   
   export const totalStyle = {
     fontSize: "24px",
-    color: "#388e3c",
+    color: "#00000",
     fontWeight: "600",
     marginTop: "20px",
   };
   
   export const buttonStyle = {
     padding: "12px 24px",
-    backgroundColor: "#388e3c",
-    color: "#fff",
+    backgroundColor: "#D8B0B1",
+    color: "#00000",
     border: "none",
     borderRadius: "5px",
     cursor: "pointer",
     fontWeight: "600",
     fontSize: "16px",
     marginTop: "20px",
+    textDecoration: "none",
   };
   

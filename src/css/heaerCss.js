@@ -1,35 +1,36 @@
 export const logoStyle = {
-  width: "120px", // גודל לוגו יותר מרשים
-  height: "auto",
+  width: '120px',
+  height: 'auto',
 };
 
 export const headerStyle = {
-  backgroundColor: "#388e3c", // ירוק כהה ומרשים יותר
-  padding: "20px 40px",
-  boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)", // צל חזק יותר
-  position: "sticky",
+  backgroundColor: '#ffffff', // רקע לבן לכל ה-Header
+  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)', // צל קל
+  position: 'sticky',
   top: 0,
   zIndex: 1000,
-  borderBottom: "5px solid #f1f1f1", // קו תחתון עדין
+  width: '100%',
 };
 
 export const navStyle = {
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
 };
 
 export const linkStyle = {
-  textDecoration: "none",
-  color: "#f4f4f4", // צבע בהיר יותר
-  fontWeight: "bold",
-  fontSize: "20px", // גודל פונט יותר גדול
-  margin: "0 20px", // ריווח רחב יותר בין הקישורים
-  transition: "color 0.3s ease, transform 0.3s ease", // מעבר חלק יותר
-  fontFamily: "'Roboto', sans-serif", // גופן מודרני
+  textDecoration: 'none',
+  color: '#000000', // טקסט שחור
+  fontWeight: 'bold',
+  fontSize: '20px',
+  margin: '0 20px',
+  padding: '10px 20px', // ריווח פנימי כדי ליצור ריבוע ברור יותר
+  transition: 'background-color 0.3s ease, color 0.3s ease',
+  fontFamily: "'Roboto', sans-serif",
+  borderRadius: '8px', // קצוות מעוגלים לריבוע
 };
 
 export const linkHoverStyle = {
-  color: "#ffb74d", // גוון אורני כתום (חמים)
-  transform: "scale(1.1)", // הגדלה קלה
+  backgroundColor: '#D8B0B1', // צבע ורוד בהיר
+  color: '#000000', // טקסט נשאר שחור
 };

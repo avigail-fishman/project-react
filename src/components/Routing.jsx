@@ -12,9 +12,10 @@ import UsersManager from "./UsersManager";
 import AddItem from "./AddItem";
 import UpdateItem from "./UpdateItem";
 
+
 export const Routing = ({ products, addToCart, cartArr,
-    deleteFromCart, sum, deleteByManager, addItemByManager, 
-    updateItemByManager , resetCartArr}) => {
+    deleteFromCart, sum, deleteByManager, addItemByManager,
+    updateItemByManager, resetCartArr }) => {
 
     return (
         <>
@@ -39,7 +40,9 @@ export const Routing = ({ products, addToCart, cartArr,
                 <Route path="/addItem" element={<AddItem
                     addItemByManager={addItemByManager} />} />
                 <Route path="/updateItem" element={<UpdateItem
-                updateItemByManager = {updateItemByManager} />} />
+                    updateItemByManager={updateItemByManager} />} />
+                {/* שולח לקומפוננטת details כ params */}
+                {/* <Route path="/details/:name/:discraption" element={<Details />} /> */}
 
 
             </Routes>

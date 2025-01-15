@@ -1,6 +1,6 @@
 export const cartContainerStyle = {
     textAlign: "center",
-    padding: "40px 20px",
+    padding: "63px 20px",
     backgroundColor: "#f4f4f4",
     margin: "20px auto",
     maxWidth: "800px",
@@ -10,7 +10,7 @@ export const cartContainerStyle = {
   
   export const cartHeaderStyle = {
     fontSize: "32px",
-    color: "#388e3c",
+    color: "#00000",
     fontWeight: "600",
     marginBottom: "30px",
     fontFamily: "'Roboto', sans-serif",
@@ -28,16 +28,17 @@ export const cartContainerStyle = {
   
   export const deleteButtonStyle = {
     padding: "8px 16px",
-    backgroundColor: "#d32f2f",
-    color: "#fff",
+    backgroundColor: "#D8B0B1",
+    color: '#000000',
     border: "none",
     borderRadius: "5px",
     cursor: "pointer",
+    fontWeight: "bold",
   };
   
   export const totalStyle = {
     fontSize: "24px",
-    color: "#388e3c",
+    color: "#00000",
     fontWeight: "600",
     marginTop: "20px",
   };
@@ -46,8 +47,8 @@ export const cartContainerStyle = {
     display: "inline-block",
     marginTop: "20px",
     padding: "12px 24px",
-    backgroundColor: "#388e3c",
-    color: "#fff",
+    backgroundColor: "#D8B0B1",
+    color: "#00000",
     textDecoration: "none",
     borderRadius: "5px",
     fontWeight: "600",

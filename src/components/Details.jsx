@@ -1,37 +1,22 @@
-import { Link } from "react-router-dom";
-import { closeButtonStyle, modalStyle, overlayStyle } from "../style";
+// import React from "react";
+// import { useParams } from "react-router-dom";
+// import { modalStyle, overlayStyle, closeButtonStyle } from "../style";
 
-function Details({ flower, isOpen, onClose, modalType, openModal }) {
-  if (!isOpen) return null; // אם הפופאפ סגור, לא להציג כלום
+// function Details() {
+//   // שליפת הפרמטרים מתוך ה-URL
+//   const { name, discraption } = useParams();
 
-  return (
-    <div style={overlayStyle}>
-      <div style={modalStyle}>
-        <button onClick={onClose} style={closeButtonStyle}>X</button>
+//   return (
+//     <div style={overlayStyle}>
+//       <div style={modalStyle}>
+//         <button onClick={() => window.history.back()} style={closeButtonStyle}>X</button> {/* חזרה לדף הקודם */}
+        
+//         {/* הצגת פרטי המוצר */}
+//         <h2>{name}</h2>
+//         <p>{discraption}</p>
+//       </div>
+//     </div>
+//   );
+// }
 
-        {/* הצגת שם המוצר */}
-        <h2>{flower.name}</h2>
-        <p>{flower.price} ₪</p>
-
-        {/* אם המודאל הוא עבור "פרטי המוצר" */}
-        {modalType === "details" && (
-          <>
-            <p>{flower.discraption}</p>
-            {/* שינוי לכפתור שמפעיל את openModal */}
-            <button onClick={() => openModal("cart")}>הוסף לסל</button>
-          </>
-        )}
-
-        {/* אם המודאל הוא עבור "הוסף לסל" */}
-        {modalType === "" && (
-          <>
-            <p>המוצר נוסף לעגלת הקניות!</p>
-            <Link to="/myCart">ראה את עגלת הקניות</Link>
-          </>
-        )}
-      </div>
-    </div>
-  );
-}
-
-export default Details;
+// export default Details;

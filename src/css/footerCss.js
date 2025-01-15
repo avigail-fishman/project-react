@@ -1,40 +1,55 @@
 export const footerStyle = {
-  backgroundColor: "#388e3c", // שינוי ירוק כהה יותר
-  color: "#f4f4f4", // צבע טקסט בהיר
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "flex-start",
-  padding: "40px 20px", // ריווח גדול יותר
-  flexWrap: "wrap",
-  marginTop: "auto",  /* זו השורה המוספת */
+  backgroundColor: '#ffffff', // רקע לבן
+  color: '#000000', // טקסט שחור
+  display: 'flex',
+  justifyContent: 'space-evenly', // פיזור שווה של האלמנטים
+  alignItems: 'center', // יישור אנכי של התוכן
+  flexWrap: 'wrap', // עיטוף אם יש חוסר מקום
+  marginTop: 'auto', // שמירה על מיקום מתאים
+  width: '100%', // רוחב מלא
+  padding: '20px 0', // ריווח פנימי
+  boxShadow: '0 -4px 20px rgba(0, 0, 0, 0.1)', // צל למעלה
 };
 
 export const followStyle = {
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  marginRight: "20px",
-  marginBottom: "20px", // ריווח תחתון נוסף
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  marginBottom: '30px',
+  fontFamily: "'Roboto', sans-serif", // גופן מודרני
 };
 
 export const columnStyle = {
-  flex: "1 1 20%",
-  padding: "15px", // ריווח פנימי רחב יותר
-  listStyleType: "none",
-  color: "#f4f4f4", // צבע טקסט בהיר יותר
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center', // למרכז את כל הטקסט בעמודה
+  margin: '10px', // ריווח בין עמודות
+  listStyleType: 'none', // הסרת הנקודות מה-li
+  fontFamily: "'Roboto', sans-serif", // גופן מודרני
 };
 
-export const iconsStyle = {
-  fontSize: "30px", // הגדלת אייקונים
-  margin: "10px 0", // ריווח גדול יותר בין האייקונים
-  color: "#ffb74d", // צבע כתום בהיר (חמים)
+export const liStyle = {
+  padding: '10px', // ריווח פנימי
+  transition: 'background-color 0.3s ease, color 0.3s ease', // מעבר חלק
+  borderRadius: '8px', // עיגול קל לפינות
+};
+
+export const liHoverStyle = {
+  backgroundColor: '#D8B0B1', // רקע ורוד בהיר בעת מעבר
+  color: '#000000', // טקסט שחור
 };
 
 export const copyrightBarStyle = {
-  backgroundColor: "#3c433c", 
-  color: "#fff",
-  textAlign: "center",
-  padding: "15px 0", // ריווח אנכי רחב יותר
-  fontSize: "16px", // גודל פונט טיפה יותר גדול
-  marginTop: "20px", // ריווח נוסף למעלה
+  backgroundColor: '#D8B0B1', // רקע לבן
+  color: '#000000', // טקסט שחור
+  textAlign: 'center',
+  padding: '7px 0', // ריווח פנימי
+  fontFamily: "'Roboto', sans-serif", // גופן מודרני
+  boxShadow: '0 -4px 10px rgba(0, 0, 0, 0.1)', // צל למעלה
+};
+export const separatorStyle = {
+  backgroundColor: '#D8B0B1', // צבע ורוד
+  height: '5px', // גובה הפס
+  width: '100%', // רוחב מלא
+  boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)', // צל עדין
 };

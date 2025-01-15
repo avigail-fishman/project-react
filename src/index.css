@@ -1,98 +1,16 @@
-/* הגדרות כלליות לעמוד */
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f8f8f5; /* צהוב בהיר */
-  color: #000000;
+/* * {
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-  overflow-x: hidden; /* ביטול גלילה אופקית */
-}
+  box-sizing: border-box;
+} */
+/* 
+html, body {
+  height: 100%;
+  overflow: hidden; 
+  overflow-x: hidden;
+} */
 
-
-/* סגנון לקונטיינר המרכזי שמכיל את 3 הקופסאות */
-.container {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px; /* הגדלת הרווחים בין הקופסאות */
-  width: 90%;
-  margin-top: 30px;
-}
-
-/* סגנון לכל קופסה */
-.box {
-  flex: 1;
-  min-width: 250px;
-  height: 500px;
-  background-color: #ffd4b2; /* ורוד בהיר */
-  border: 3px solid #000000;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin-bottom: 20px;
-}
-
-/* עיצוב כותרת */
-h1 {
-  text-align: center;
-  font-size: 2em;
-  color: #000000;
-  margin-bottom: 20px;
-}
-
-/* עיצוב הפוטר */
-footer {
-  background-color: #000000;
-  color: #ffffff;
-  width: 100%;
-  text-align: center;
-  padding: 20px 0;
-  position: relative;
-  bottom: 0;
-  font-size: 1.2em;
-  margin-top: 20px; /* רווח נוסף למעלה */
-}
-
-/* עיצוב כפתור הוספת תרומה */
-button {
-  background-color: #ffd700; /* זהב */
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1.1em;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #ffcc00; /* זהב כהה */
-}
-
-/* עיצוב טופס הוספת תרומה */
-form {
-  background-color: #ffd4b2;
-  border-radius: 10px;
-  padding: 20px;
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-input {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-h2 {
-  text-align: center;
-  color: #000000;
-  font-size: 1.5em;
-}
+/* #root {
+  height: 100%;
+  overflow: hidden; 
+} */

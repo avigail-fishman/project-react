@@ -3,6 +3,7 @@ import Card from "./Card";
 import { productsContainerStyle, cardContainerStyle, cardContainerHoverStyle } from "../css/productsCss";
 import { Link } from "react-router-dom";
 import MyConext from "../context/context";
+import { buttonStyle } from "../css/paymentCss";
 
 function Products({ products, addToCart, deleteByManager,updateItemByManager}) {
   
@@ -17,7 +18,10 @@ function Products({ products, addToCart, deleteByManager,updateItemByManager}) {
 
   return (
     <>
-      <h1 style={{ textAlign: "center", fontSize: "32px", margin: "30px 0", color: "#77a077" }}>פרחים</h1>
+    <br></br>
+      {currentUser?.role === "manager" && (
+      <Link to="/addItem" style={buttonStyle}>להוספת מוצר</Link>
+      )}
       <div style={productsContainerStyle}>
         {products.map((f, index) => (
           <div
@@ -35,9 +39,7 @@ function Products({ products, addToCart, deleteByManager,updateItemByManager}) {
           </div>
         ))}
       </div>
-      {currentUser?.role === "manager" && (
-      <Link to="/addItem">להוספת מוצר</Link>
-      )}
+    
     </>
   );
 }

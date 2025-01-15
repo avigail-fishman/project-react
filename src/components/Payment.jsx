@@ -20,8 +20,7 @@ function Payment({resetCartArr}) {
           <h2 style={totalStyle}>המחיר לתשלום הוא: {initialTotal}₪</h2>
           <button 
             style={buttonStyle} 
-            onClick={handlePayment}
-          >
+            onClick={handlePayment}>
             אישור לתשלום
           </button>
         </>

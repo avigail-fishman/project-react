@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { buttonStyle, contactContainerStyle, inputStyle } from "../css/contactUsCss";
+import { buttonStyle, contactContainerStyle, contactHeaderStyle, inputStyle } from "../css/contactUsCss";
 import { useLocation } from "react-router-dom";
 
 function UpdateItem({ updateItemByManager }) {
@@ -14,7 +14,8 @@ function UpdateItem({ updateItemByManager }) {
 
   // פונקציה לעדכון פרטי המוצר
   const updateItemForever = () => {
-    const newItem = { id: product.id, name: nameValue, price: priceValue, img: imageValue, discraption: discraptionValue };
+    const newItem = { id: product.id, name: nameValue,
+         price: priceValue, img: imageValue, discraption: discraptionValue };
     alert("המוצר עודכן בהצלחה");
     updateItemByManager(newItem);
     setDiscraptionValue("");
@@ -25,7 +26,7 @@ function UpdateItem({ updateItemByManager }) {
 
   return (
     <>
-      <h1>טופס עידכון מוצר</h1>
+      <h1 style={contactHeaderStyle}>טופס עידכון מוצר</h1>
       <div style={contactContainerStyle}>
         <form>
           <input
@@ -60,11 +61,11 @@ function UpdateItem({ updateItemByManager }) {
             style={inputStyle}
             required
           />
+          <br></br>
           <button
             type="button"
             onClick={() => updateItemForever()}
-            style={buttonStyle}
-          >
+            style={buttonStyle}>
             עדכן מוצר
           </button>
         </form>

@@ -25,7 +25,7 @@ export const cardContainerStyle = {
   };
   
   export const cardButtonStyle = {
-    backgroundColor: "#ff91af", // צבע ורוד בהיר
+    backgroundColor: "#D8B0B1", // צבע ורוד בהיר
     color: "#fff",
     padding: "10px 20px",
     borderRadius: "8px",
@@ -37,7 +37,7 @@ export const cardContainerStyle = {
   };
   
   export const cardButtonHoverStyle = {
-    backgroundColor: "#ff6384", // צבע ורוד כהה במעבר עכבר
+    backgroundColor: "#BC7D74", // צבע ורוד כהה במעבר עכבר
     transform: "scale(1.05)", // הגדלה קלה של כפתור בעת העכבר
   };
   
